@@ -7,7 +7,7 @@ on:
     branches: 
       [ master ]
     paths:
-    - '"./Dockerfile"/**'
+    - '**'
     - '.github/workflows/azure-app-AutoDeployTrigger-fe15d67a-de34-45e7-83ac-035b264a7e43.yml'
 
   # Allow mannually trigger 
@@ -36,8 +36,8 @@ jobs:
         with:
           push: true
           tags: jagorddemo.azurecr.io/prod-deploy:${{ github.sha }}
-          file: "./Dockerfile"/Dockerfile
-          context: "./Dockerfile"/
+          file: ./Dockerfile
+          context: ./
 
 
   deploy:
