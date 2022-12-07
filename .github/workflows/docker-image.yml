@@ -17,5 +17,5 @@ jobs:
         uses: docker/login-action@v1
         with:
           registry: containerregistry543456.azurecr.io
-          username: ${{ secrets.AZUREAPP_REGISTRY_USERNAME }}
-          password: ${{ secrets.AZUREAPP_REGISTRY_PASSWORD }}
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
