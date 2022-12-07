@@ -7,9 +7,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@master
-    - uses: azure/docker-login@master
-      with:
-        login-server: containerregistry543456.azurecr.io
-        username: ${{ secrets.REGISTRY_USERNAME }}
-        password: ${{ secrets.REGISTRY_PASSWORD }}
+      - name: Checkout to the branch
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Log in to container registry
+        uses: docker/login-action@v1
+        with:
+          registry: jagorddemo.azurecr.io
+          username: ${{ secrets.AZUREAPP_REGISTRY_USERNAME }}
+          password: ${{ secrets.AZUREAPP_REGISTRY_PASSWORD }}
