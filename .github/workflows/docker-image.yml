@@ -19,3 +19,11 @@ jobs:
           registry: containerregistry543456.azurecr.io
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
+          
+      - name: Build and push container image to registry
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: containerregistry543456.azurecr.io/azure-app:${{ github.sha }}
+          file: ./Dockerfile
+          context: ./    
