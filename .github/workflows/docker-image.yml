@@ -8,7 +8,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@master
-    - uses: azure/docker-login@v2
+    - uses: azure/docker-login@v1
       with:
         login-server: containerregistry543456.azurecr.io
         username: ${{ secrets.REGISTRY_USERNAME }}
